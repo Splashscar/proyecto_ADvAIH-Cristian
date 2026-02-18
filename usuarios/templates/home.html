@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .info {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #4e73df;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2e59d9;
+        }
+
+        .btn-danger {
+            background-color: #e74a3b;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #f8f9fc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🏠 Bienvenido</h1>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="info">
+            <strong>Email:</strong> {{ datos_usuario.email }}
+        </div>
+
+        <div class="info">
+            <strong>Rol:</strong> {{ datos_usuario.rol }}
+        </div>
+
+        <a href="{% url 'listar_eventos' %}" class="btn btn-primary">
+            📅 Ver mis eventos
+        </a>
+
+        <a href="{% url 'logout' %}" class="btn btn-danger">
+            🚪 Cerrar sesión
+        </a>
+    </div>
+
+</body>
+</html>

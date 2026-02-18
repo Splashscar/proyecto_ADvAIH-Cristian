@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Evento</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #43cea2;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2bbf8a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>➕ Crear Evento</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="titulo" placeholder="Título del evento" required>
+            <textarea name="descripcion" placeholder="Descripción"></textarea>
+            <input type="date" name="fecha" required>
+
+            <button type="submit">Guardar Evento</button>
+        </form>
+    </div>
+
+</body>
+</html>

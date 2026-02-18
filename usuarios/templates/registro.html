@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #43cea2;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2bbf8a;
+        }
+
+        .link {
+            margin-top: 15px;
+            display: block;
+            font-size: 14px;
+            text-decoration: none;
+            color: #555;
+        }
+
+        .mensaje {
+            background: #f8f9fc;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>📝 Crear Cuenta</h1>
+
+        {% if mensaje %}
+            <div class="mensaje">{{ mensaje }}</div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Registrarme</button>
+        </form>
+
+        <a href="{% url 'login' %}" class="link">
+            ¿Ya tienes cuenta? Inicia sesión
+        </a>
+    </div>
+
+</body>
+</html>
