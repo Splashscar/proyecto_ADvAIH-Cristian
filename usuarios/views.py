@@ -56,7 +56,7 @@ def login_required_firebase(view_func):
 
 def iniciar_sesion(request):
     if 'uid' in request.session:
-        return redirect('home')  # Redirige al dashboard si ya está autenticado
+        return redirect('home')  # Redirige al home si ya está autenticado
     
     if request.method == 'POST':
         email = request.POST.get('email')
