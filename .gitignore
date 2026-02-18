@@ -1,5 +1,5 @@
 proyecto_advaih/serviceAccountKey.json
-.env
-db.sqlite3
-Firebase_config.py
+proyecto_advaih/.env
+proyecto_ADVAIH/db.sqlite3
+proyecto_advaih/Firebase_config.py
 
